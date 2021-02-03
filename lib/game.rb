@@ -24,11 +24,16 @@ class Game
       when answer_clone[index] == letter
         bulls_counter += 1
 
-        answer_clone[index] == letter
-      when answer_clone.include?(letter) && word[answer_clone.index(letter)] != letter
-        cows_counter += 1
+        answer_clone[index] = '_'
+      when answer_clone.include?(letter)
+        answer_clone.chars.each_with_index do |l, j|
+          if letter == l && answer_clone[j] != word[j]
+            cows_counter += 1
+            answer_clone[j] = "_"
 
-        answer_clone[answer_clone.index(letter)] = "_"
+            break
+          end
+        end
       end
     end
 
@@ -36,13 +41,13 @@ class Game
   end
 
   def finish?(word)
-    lose?(word) || win?(word)
+    lose?(word) ? lose?(word) : win?(word)
   end
 
   private
 
   def lose?(word)
-    word == 'abort'
+    word.downcase == 'abort'
   end
 
   def win?(word)
