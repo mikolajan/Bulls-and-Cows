@@ -13,7 +13,7 @@ class Game
   # проверяем является ли буква быком, далее ищем корову,
   # но при условии, что эта буква с другим индексом не является быком
   def check_word(word)
-    word = word.upcase
+    @last_input_word = word.upcase
     answer_clone = hidden_word.clone
 
     bulls_counter = 0
@@ -40,17 +40,17 @@ class Game
     @checked_words[word] = "#{bulls_counter}b#{cows_counter}c"
   end
 
-  def finish?(word)
-    lose?(word) ? lose?(word) : win?(word)
+  def finish?
+    lose? ? lose? : win?
   end
 
   private
 
-  def lose?(word)
-    word.downcase == 'abort'
+  def lose?
+    @last_input_word&.downcase == 'abort'
   end
 
-  def win?(word)
-    word == hidden_word
+  def win?
+    @last_input_word == @hidden_word
   end
 end
