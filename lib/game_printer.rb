@@ -3,13 +3,13 @@ class GamePrinter
     @game = game
   end
 
-  def print_input_words
+  def print_progress
     system "clear" or system "cls"
 
     if @game.checked_words.empty?
-      puts 'Начинаем игру "Быки и коровы"'
+      'Начинаем игру "Быки и коровы"'
     else
-      @game.checked_words.each { |k, v| puts "#{k}: #{v}"}
+      @game.checked_words.map { |k, v| "#{k}: #{v}"}
     end
   end
 
@@ -26,7 +26,7 @@ class GamePrinter
   end
 
   def game_result
-    "Игра окончена. Правильно слово: #{@game.hidden_word}"
+    "Игра окончена. Правильное слово: #{@game.hidden_word}"
   end
 
   private
@@ -38,6 +38,6 @@ class GamePrinter
   end
 
   def print_input_word
-    puts "Введите слово для проверки из #{@game.hidden_word.length} букв"
+    puts "Введите слово для проверки из #{@game.hidden_word.length} букв или abort для завершения"
   end
 end
