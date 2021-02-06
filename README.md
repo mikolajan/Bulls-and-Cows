@@ -10,7 +10,7 @@
     cd bulls_and_cows
     ruby main.rb
 
-Если шрифты отображаются некорректно, то решение этого вопроса [тут](http://ruby.qkspace.com/windows-problema-s-kodirovkoy-russkimi-bukvami)
+Если шрифты отображаются некорректно, то решение вопроса [тут](http://ruby.qkspace.com/windows-problema-s-kodirovkoy-russkimi-bukvami).
 
 Вы всегда можете добавить новые слова, ведь они хранятся в /data/words.txt. 
 Для игры по классическим правилам закомментируйте 11 строку и раскомментируйте 12 строку в main.rb. Для изменения длины загадываемого слова измените значение константы LENGTH_HIDDEN_WORD в /lib/words_reader.rb
