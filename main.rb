@@ -10,7 +10,7 @@ require_relative 'lib/words_reader'
 
 word = WordsReader.read_from_file(File.join(__dir__, 'data', 'words.txt')).sample
 # word = WordsReader.generate_hidden_word
-word = 'атом'
+
 game = Game.new(word)
 game_printer = GamePrinter.new(game)
 
